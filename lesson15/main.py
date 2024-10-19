@@ -26,7 +26,7 @@ def do_thing(t):
     mqtt.publish('SA-54/TEMPERATURE', f'{temperature}')
     adc_value = adc_light.read_u16()
     print(f'光線:{adc_value}')
-    mqtt.publish('SA-54/LINE_LEVEL', f'{adc_value}')
+    mqtt.publish('SA-54/LIGHT_LEVEL', f'{adc_value}')
     
     
 def do_thing1(t):

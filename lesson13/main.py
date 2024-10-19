@@ -21,12 +21,14 @@ def do_thing(t):
     '''
     conversion_factor = 3.3 / (65535)
     reading = adc.read_u16() * conversion_factor
-    temperature = 27 - (reading - 0.706)/0.001721  
+    temperature = round((27 - (reading - 0.706)/0.001721),2)  
     print(f'溫度:{temperature}')
     mqtt.publish('SA-54/TEMPERATURE', f'{temperature}')
     adc_value = adc_light.read_u16()
-    print(f'光線:{adc_value}')
-    mqtt.publish('SA-54/LINE_LEVEL', f'{adc_value}')
+    #print(f'光線:{adc_value}')
+    light_status = 0 if adc_value < 3500 else 1
+    print(f'光照狀態:{line_status}')
+    mqtt.publish('SA-54/LIGHT_LEVEL', f'{light_ststus}')
     
     
 def do_thing1(t):

@@ -1,3 +1,5 @@
+#自己寫的，2024/10/19 未修改完成
+
 
 # 匯入 Python MQTT 第三方模組，需要另外安裝
 import paho.mqtt.client as mqtt
